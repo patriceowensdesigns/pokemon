@@ -1,9 +1,14 @@
-// adding css to jsx is that easy
-import './App.css'; // This pattern is preferred where css for this component has a matching .css filename
+import {Route} from 'react-router-dom';
 
 // A component import
-import Navbar from './components/Navbar'
+import Navbar from './components/Navbar';
+import Home from './components/Home';
+import Pokemon from './components/Pokemon';
 
+
+
+// adding css to jsx is that easy
+import './App.css'; // This pattern is preferred where css for this component has a matching .css filename
 
 // Defining our <App /> component the function name matches the file name
 function App() {
@@ -12,6 +17,8 @@ function App() {
     <div className="App"> {/* Parent Element. Also we can't use the word class, so we use className in jsx*/}
       {/* Navbar is our imported component*/}
       <Navbar />
+      <Route exact path="/" component={Home} />
+      <Route path="/pokemon/:name" component={Pokemon} />
     </div>
   );
 }
